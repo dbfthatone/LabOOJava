@@ -1,16 +1,20 @@
 package one.digitalinovation.laboojava.negocio;
 
 import one.digitalinovation.laboojava.basedados.Banco;
+
 import one.digitalinovation.laboojava.entidade.Produto;
 
 import java.util.Optional;
+
+import one.digitalinovation.laboojava.utilidade.LeitoraDados;
 
 /**
  * Classe para manipular a entidade {@link Produto}.
  * @author thiago leite
  */
 public class ProdutoNegocio {
-
+	
+	LeitoraDados leitora = new LeitoraDados();
     /**
      * {@inheritDoc}.
      */
@@ -53,8 +57,19 @@ public class ProdutoNegocio {
      * Exclui um produto pelo código de cadastro.
      * @param codigo Código de cadastro do produto
      */
-    public void excluir(String codigo) {
-        //TODO Implementar a exclusão
+    public void excluir(String codigoParaRemover) {
+    	
+    	for (Produto produto : bancoDados.getProdutos()) {
+    		if(produto.getCodigo().equals(codigoParaRemover)) {
+    			bancoDados.removerProduto(produto);
+    			if (produto.getCodigo().equals(codigoParaRemover)) {
+    				System.out.println("Produto removido");
+    			}
+    			else {
+    				System.out.println("Falha ao remover produto");
+    			}			
+    		}
+    	}
     }
 
     /**

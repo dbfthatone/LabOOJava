@@ -49,6 +49,8 @@ public class Start {
             System.out.println("1 - Cadastrar Livro");
             System.out.println("2 - Excluir Livro");
             //TODO Desafio: Consultar Livro(nome)
+            System.out.println("11 - Consultar livro");
+            
             System.out.println("3 - Cadastrar Caderno");
             System.out.println("4 - Excluir Caderno");
             //TODO Desafio: Consultar Caderno(matéria)
@@ -74,19 +76,25 @@ public class Start {
                     break;
                 case "3":
                     //TODO Cadastrar Caderno
+                	 Caderno caderno = LeitoraDados.lerCaderno();
+                     produtoNegocio.salvar(caderno);
                     break;
                 case "4":
                     //TODO Excluir Caderno
                     break;
                 case "5":
-                    Pedido pedido = LeitoraDados.lerPedido(banco);
-                    Optional<Cupom> cupom = LeitoraDados.lerCupom(banco);
-
-                    if (cupom.isPresent()) {
-                        pedidoNegocio.salvar(pedido, cupom.get());
-                    } else {
-                        pedidoNegocio.salvar(pedido);
-                    }
+                    Pedido pedido = LeitoraDados.lerPedido(banco, clienteLogado);
+                    pedidoNegocio.salvar(pedido, pedido.getCupom());
+                    
+                    //Optional<Cupom> cupom = LeitoraDados.lerCupom(banco);
+                    
+                    
+                    
+//                    if (cupom.isPresent()) {
+//                        pedidoNegocio.salvar(pedido, cupom.get());
+//                    } else {
+//                        pedidoNegocio.salvar(pedido);
+//                    }
                     break;
                 case "6":
                     System.out.println("Digite o código do pedido");

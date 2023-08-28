@@ -16,7 +16,7 @@ public class Cupom {
      * Valor em porcentagem do desconto.
      */
     private int desconto;
-
+    
     /**
      * Construtor do cupom
      * @param codigo Código do cupom

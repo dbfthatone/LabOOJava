@@ -1,22 +1,18 @@
 package one.digitalinovation.laboojava.entidade;
 
-import one.digitalinovation.laboojava.entidade.constantes.Genero;
+import one.digitalinovation.laboojava.entidade.constantes.Tipo;
 
-/**
- * Classe que representa um livro, qual é uma especialização de um produto da loja.
- * @author thiago leite
- */
-public class Livro extends Produto {
+public class Caderno extends Produto {
 
-    /**
+	 /**
      * Nome do livro.
      */
     private String nome;
 
     /**
-     * Gênero do livro.
+     * Tipo do caderno.
      */
-    private Genero genero;
+    private Tipo tipo;
 
     public String getNome() {
         return nome;
@@ -26,12 +22,12 @@ public class Livro extends Produto {
         this.nome = nome;
     }
 
-    public Genero getGenero() {
-        return genero;
+    public Tipo getTipo() {
+        return tipo;
     }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
 
     /**
@@ -39,14 +35,14 @@ public class Livro extends Produto {
      */
     @Override
     public double calcularFrete() {
-        return (getPreco() * getQuantidade()) * (1 + genero.getFator());
+        return (getPreco() * getQuantidade()) * (1 + tipo.getFator());
     }
 
     @Override
     public String toString() {
         return "Livro{" +
                 "nome='" + getNome() + '\'' +
-                ", genero=" + getGenero() + '\'' +
+                ", tipo=" + tipo + '\'' +
                 ", codigo='" + getCodigo() + '\'' +
                 ", preço='" + getPreco() + '\'' +
                 '}';
