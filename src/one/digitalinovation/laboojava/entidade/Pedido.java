@@ -104,6 +104,23 @@ public class Pedido {
 	}
 	
 	
+	@Override
+	public String toString() {
+		
+		//for (Produto produto: getProdutos()) {
+		//	System.out.println(" código prod.: " + produto.getCodigo() + " quantidade: " + produto.getQuantidade());
+			
+			
+			return "Pedido{ Código " + getCodigo() 
+			+ " Cliente: " +  getCliente().getNome() + 
+			" CPF do cliente: " + getCliente().getCpf();
+		}
+		
+				
+			
+		
+	}
+	
 ////TODO método para calcular o total
 //	private double calcularTotal () {
 //		
@@ -118,4 +135,4 @@ public class Pedido {
 //		return total;
 //	}
 	
-	}
+	

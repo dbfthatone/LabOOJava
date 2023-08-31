@@ -1,11 +1,12 @@
 package one.digitalinovation.laboojava.entidade;
 
 import one.digitalinovation.laboojava.entidade.constantes.Tipo;
+import one.digitalinovation.laboojava.entidade.constantes.TipoProduto;
 
 public class Caderno extends Produto {
 
 	 /**
-     * Nome do livro.
+     * Nome do caderno.
      */
     private String nome;
 
@@ -29,6 +30,7 @@ public class Caderno extends Produto {
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
+   
 
     /**
      * {@inheritDoc}.

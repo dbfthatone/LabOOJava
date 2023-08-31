@@ -10,6 +10,7 @@ import one.digitalinovation.laboojava.entidade.Cliente;
 import one.digitalinovation.laboojava.entidade.Cupom;
 import one.digitalinovation.laboojava.entidade.constantes.Genero;
 import one.digitalinovation.laboojava.entidade.constantes.Tipo;
+import one.digitalinovation.laboojava.entidade.constantes.TipoProduto;
 import one.digitalinovation.laboojava.negocio.ProdutoNegocio;
 
 import java.util.Optional;
@@ -50,6 +51,17 @@ public final class LeitoraDados {
 		System.out.println("Cadastrando livro...");
 		Livro livro = new Livro();
 
+		livro.setTipoProduto(TipoProduto.LIVRO);
+//tipo de produto
+		/*while(livro.getTipoProduto()==null){
+			System.out.println("\nDigite o tipo de produto: LIVRO, CADERNO");
+			String tipoProd = lerDado();
+			try {livro.setTipoProduto(TipoProduto.valueOf(tipoProd.toUpperCase()));}
+			catch (IllegalArgumentException e) {
+				System.out.print("Esse valor não corresponde a nenhum tipo de produto disponível no momento");
+			}
+		}*/
+		
 		System.out.println("Digite o nome");
 		String nome = lerDado();
 		livro.setNome(nome);
@@ -79,6 +91,17 @@ public final class LeitoraDados {
 
 		System.out.println("Cadastrando caderno...");
 		Caderno caderno = new Caderno();
+		
+		caderno.setTipoProduto(TipoProduto.CADERNO);
+		//tipo de produto
+		/*while(caderno.getTipoProduto()==null){
+			System.out.println("\nDigite o tipo de produto: LIVRO, CADERNO");
+			String tipoProd = lerDado();
+			try {caderno.setTipoProduto(TipoProduto.valueOf(tipoProd.toUpperCase()));}
+			catch (IllegalArgumentException e) {
+				System.out.print("Esse valor não corresponde a nenhum tipo de produto disponível no momento");
+			}
+		}*/
 
 		System.out.println("Digite o nome");
 		String nome = lerDado();

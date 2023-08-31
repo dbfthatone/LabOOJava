@@ -27,6 +27,9 @@ public class Start {
      * Método utilitário para inicializar a aplicação.
      * @param args Parâmetros que podem ser passados para auxiliar na execução.
      */
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         System.out.println("Bem vindo ao e-Compras");
@@ -48,12 +51,12 @@ public class Start {
             System.out.println("Selecione uma opção:");
             System.out.println("1 - Cadastrar Livro");
             System.out.println("2 - Excluir Livro");
-            //TODO Desafio: Consultar Livro(nome)
+            //TODO Desafio: Consultar Livro(nome)   -  feito
             System.out.println("11 - Consultar livro");
             
             System.out.println("3 - Cadastrar Caderno");
             System.out.println("4 - Excluir Caderno");
-            //TODO Desafio: Consultar Caderno(matéria)
+            //TODO Desafio: Consultar Caderno(matéria) - feito
             System.out.println("5 - Fazer pedido");
             System.out.println("6 - Excluir pedido");
             //TODO Desafio: Consultar Pedido(código)
@@ -106,6 +109,7 @@ public class Start {
                     break;
                 case "8":
                     //TODO Listar todos os Pedidos
+                	pedidoNegocio.listarPedidos();
                     break;
                 case "9":
                     System.out.println(String.format("Volte sempre %s!", clienteLogado.getNome()));
@@ -114,6 +118,18 @@ public class Start {
                 case "10":
                     System.out.println("Aplicação encerrada.");
                     System.exit(0);
+                    break;
+                case "11":
+                    System.out.println("Digite o nome do livro.");
+                    String nome = LeitoraDados.lerDado();           
+                    System.out.println(produtoNegocio.consultarPorNome(nome, "livro"));
+                    //produtoNegocio.consultar(nome);
+                    break;
+                case "12":
+                    System.out.println("Digite o nome do caderno.");
+                    String nomeCaderno = LeitoraDados.lerDado();           
+                    System.out.println(produtoNegocio.consultarPorNome(nomeCaderno, "caderno"));
+                    //produtoNegocio.consultar(nome);
                     break;
                 default:
                     System.out.println("Opção inválida.");

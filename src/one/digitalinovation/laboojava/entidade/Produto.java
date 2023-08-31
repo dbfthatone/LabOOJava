@@ -1,16 +1,20 @@
 package one.digitalinovation.laboojava.entidade;
 
+import one.digitalinovation.laboojava.entidade.constantes.TipoProduto;
+
 /**
  * Classe que representa a abstração dos produtos que podem ser vendidos pela loja.
  * @author thiago leite
  */
 public abstract class Produto {
 
+	private TipoProduto tipoProduto;
     /**
      * Código de identiticação do produto.
      */
     private String codigo;
-
+    
+    private String nome;
     /**
      * Valor unitário do produto.
      */
@@ -46,6 +50,19 @@ public abstract class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+    
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+  
 
     /**
      * Calcula o preço do frete para os produtos comprados. Este cálculo pode
@@ -60,4 +77,8 @@ public abstract class Produto {
     	
     	return frete;
     }
+
+	public void setTipoProduto(TipoProduto tipoProduto) {
+		this.tipoProduto = tipoProduto;
+	}
 }

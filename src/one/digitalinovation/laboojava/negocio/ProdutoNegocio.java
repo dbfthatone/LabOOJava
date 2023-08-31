@@ -1,10 +1,14 @@
 package one.digitalinovation.laboojava.negocio;
 
+import java.lang.reflect.Field;
+
 import one.digitalinovation.laboojava.basedados.Banco;
 
 import one.digitalinovation.laboojava.entidade.Produto;
+import one.digitalinovation.laboojava.entidade.constantes.TipoProduto;
 
 import java.util.Optional;
+import java.util.Scanner;
 
 import one.digitalinovation.laboojava.utilidade.LeitoraDados;
 
@@ -73,7 +77,8 @@ public class ProdutoNegocio {
     }
 
     /**
-     * Obtem um produto a partir de seu código de cadastro.
+     * Obtem um produto a partir de seu código de cadastro. 
+     * Uso de reflection para verificar se o produto possui o campo de livro ou caderno (genero ou tipo)
      * @param codigo Código de cadastro do produto
      * @return Optional indicando a existência ou não do Produto
      */
@@ -86,6 +91,31 @@ public class ProdutoNegocio {
             }
         }
 
+        return Optional.empty();
+    }
+    
+    /**
+     * Obtem um produto a partir de seu nome e tipo (deve funcionar para qualquer tipo de produto).
+     * @param nome
+     * @return Optional 
+     */
+    public Optional<Produto> consultarPorNome(String nome, String tipoProd) {
+
+    	
+
+    	for (Produto produto: bancoDados.getProdutos()) {
+    		//filtro por tipo de produto e nome
+            if (produto.getTipoProduto().toString().equalsIgnoreCase(tipoProd) && produto.getNome().equalsIgnoreCase(nome)) {
+                
+            	produto.toString();
+            	return  Optional.of(produto);
+            }
+            else {
+            	System.out.println("não encontrado!");
+            }
+            
+        }
+    	
         return Optional.empty();
     }
 
