@@ -1,6 +1,6 @@
 package one.digitalinovation.laboojava.negocio;
 
-import java.lang.reflect.Field;
+
 
 import one.digitalinovation.laboojava.basedados.Banco;
 
@@ -78,7 +78,6 @@ public class ProdutoNegocio {
 
     /**
      * Obtem um produto a partir de seu código de cadastro. 
-     * Uso de reflection para verificar se o produto possui o campo de livro ou caderno (genero ou tipo)
      * @param codigo Código de cadastro do produto
      * @return Optional indicando a existência ou não do Produto
      */

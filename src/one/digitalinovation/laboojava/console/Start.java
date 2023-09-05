@@ -53,13 +53,14 @@ public class Start {
             System.out.println("2 - Excluir Livro");
             //TODO Desafio: Consultar Livro(nome)   -  feito
             System.out.println("11 - Consultar livro");
-            
+            System.out.println("13 - Consultar pedido");
+
             System.out.println("3 - Cadastrar Caderno");
             System.out.println("4 - Excluir Caderno");
             //TODO Desafio: Consultar Caderno(matéria) - feito
             System.out.println("5 - Fazer pedido");
             System.out.println("6 - Excluir pedido");
-            //TODO Desafio: Consultar Pedido(código)
+            //TODO Desafio: Consultar Pedido(código) - feito
             System.out.println("7 - Listar produtos");
             System.out.println("8 - Listar pedidos");
             System.out.println("9 - Deslogar");
@@ -129,6 +130,13 @@ public class Start {
                     System.out.println("Digite o nome do caderno.");
                     String nomeCaderno = LeitoraDados.lerDado();           
                     System.out.println(produtoNegocio.consultarPorNome(nomeCaderno, "caderno"));
+                    //produtoNegocio.consultar(nome);
+                    break;
+                case "13":
+                    System.out.println("Digite o código do pedido");
+                    String codigoPedi = LeitoraDados.lerDado();
+                    
+                    pedidoNegocio.consultar(codigoPedi);
                     //produtoNegocio.consultar(nome);
                     break;
                 default:

@@ -144,7 +144,23 @@ public class PedidoNegocio {
     
     }
     
+    }
     
-    
+    public Optional<Pedido> consultar(String codigo) {
 
-}}
+        for (Pedido pedido: bancoDados.getPedidos()) {
+
+            if (pedido.getCodigo().equalsIgnoreCase(codigo)) {
+            	
+            	System.out.println(pedido.toString());
+            	for (Produto produto: pedido.getProdutos()) {
+                	System.out.println(" código prod.: " + produto.getCodigo() + " quantidade: " + produto.getQuantidade());
+            	}
+            	
+                return  Optional.of(pedido);
+            }
+        }
+
+        return Optional.empty();
+    }
+}
